@@ -1,9 +1,16 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PageController::class,'showwelcome']);
+Route::get('/students',[StudentController::class,'get_students']);
+Route::post('/students/add',[StudentController::class,'addUser'])->name('add.student');
+Route::get('/students/{id}',[StudentController::class,'singleUser'])->name('update.student');
+Route::post('/students/update/{id}',[StudentController::class,'updateUser'])->name('update.students');
+Route::get('/students/delete/{id}',[StudentController::class,'deleteUser'])->name('delete.student');
+Route::view('addstudent','addStudent')->name('addstudent');
 // Route::get('/', function () {
 //     return view('welcome');
 // });
