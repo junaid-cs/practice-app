@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FormValidation;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +15,9 @@ Route::view('addstudent','addStudent')->name('addstudent');
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+// validation
+Route::get('validation', [FormValidation::class,'validationform']);
+Route::post('validation/add', [FormValidation::class,'addUser'])->name('add.validation');
 
 Route::get('/aboutsssss',function(){
  return view('about');
