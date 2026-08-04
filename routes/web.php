@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EqoluentController;
 use App\Http\Controllers\FormValidation;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\StudentController;
@@ -18,6 +19,9 @@ Route::view('addstudent','addStudent')->name('addstudent');
 // validation
 Route::get('validation', [FormValidation::class,'validationform']);
 Route::post('validation/add', [FormValidation::class,'addUser'])->name('add.validation');
+
+// eqolument orm
+Route::resource('eqoluent', EqoluentController::class);
 
 Route::get('/aboutsssss',function(){
  return view('about');
